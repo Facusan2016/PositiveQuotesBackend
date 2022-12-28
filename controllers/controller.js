@@ -1,7 +1,19 @@
 const {response} = require('express');
+const {validationResult} = require('express-validator');
 const Quote = require('../models/Quote');
 
 const createQuote = async(req, res = response) =>{
+
+
+    const errors = validationResult( req );
+    
+    if(!errors.isEmpty()){
+        console.log(errors);
+        return res.status(400).json({
+            ok : false,
+            errors : errors.mapped()
+        })
+    }
 
     try {
 
