@@ -5,7 +5,14 @@ const createQuote = async(req, res = response) =>{
 
     try {
 
-        const newquote = new Quote(req.body);
+        const send = {
+            name : req.body.name,
+            quote : req.body.quote,
+            date : new Date().toGMTString()
+        }
+
+        console.log(send.date)
+        const newquote = new Quote(send);
         await newquote.save();
 
         res.status(201).json({

@@ -7,7 +7,10 @@ const QuoteSchema = Schema({
     },
     quote:{
         type : String
-    }
+    },
+    date:{
+        type : String
+    } 
 
 });
 
