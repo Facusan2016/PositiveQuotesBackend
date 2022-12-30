@@ -4,8 +4,8 @@ const { check } = require('express-validator')
 const {createQuote, selectAllQuotes} = require('../controllers/controller')
 
 router.post('/save-quote',[
-    check('name', 'El nombre es obligatorio.').not().isEmpty(),
-    check('quote', 'Debe enviar un mensaje', ).isLength({min : 6})
+    check('name', 'Name is required.').not().isEmpty(),
+    check('quote', 'Message is required.', ).not().isEmpty()
 ],
 createQuote);
 router.get('/select-all-quotes', selectAllQuotes);

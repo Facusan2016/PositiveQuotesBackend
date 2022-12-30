@@ -17,10 +17,12 @@ const createQuote = async(req, res = response) =>{
 
     try {
 
+        const d = new Date();
+
         const send = {
             name : req.body.name,
             quote : req.body.quote,
-            date : new Date().toGMTString()
+            date : `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} at ${d.getHours()}:${d.getMinutes()}`
         }
 
         console.log(send.date)
